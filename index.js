@@ -1,4 +1,16 @@
 require("dotenv").config();
-import axios from "axios";
+const axios = require("axios");
 
-console.log("👀");
+const { URL: linkToScan } = process.env;
+
+
+const main = async () => {
+    console.log(`👀 scanning ${linkToScan}`);
+    
+    const carbonData = await axios(`https://api.websitecarbon.com/site?url=${linkToScan}`);
+    console.log(carbonData.data);
+};
+
+(async () => {
+  await main();
+})();
