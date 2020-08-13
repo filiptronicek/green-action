@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "Filip Troníček",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0"
+  }
 }
