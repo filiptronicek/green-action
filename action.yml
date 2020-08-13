@@ -1,0 +1,8 @@
+name: "green-website"
+description: "Check how your project is affecting the planet"
+branding:
+  icon: "heart"
+  color: "green"
+runs:
+  using: "node14"
+  main: "index.js"
