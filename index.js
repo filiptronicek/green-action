@@ -1,6 +1,7 @@
 require("dotenv").config();
 const axios = require("axios");
 const artifact = require("@actions/artifact");
+const fs = require('fs');
 
 const { URL: linkToScan } = process.env;
 
@@ -30,6 +31,10 @@ const main = async () => {
     `https://api.websitecarbon.com/site?url=${linkToScan}`
   );
   console.log(carbonData.data);
+
+  fs.writeFile('output/output.json', JSON.stringify(carbonData.data), (err) => {
+    if (err) return console.log(err);
+  });
 };
 
 (async () => {
