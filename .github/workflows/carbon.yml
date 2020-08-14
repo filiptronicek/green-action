@@ -14,3 +14,6 @@ jobs:
         uses: filiptronicek/green-action@main
         env:
             URL: https://trnck.dev
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
