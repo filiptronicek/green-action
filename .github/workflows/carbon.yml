@@ -10,7 +10,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - run: npm i
       - name: green-website
         uses: filiptronicek/green-action@0.0.1
         env:
