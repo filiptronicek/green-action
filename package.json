@@ -4,11 +4,14 @@
   "description": "Check how your project is affecting the planet",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "ncc build index.js --out dist --minify"
   },
   "keywords": [],
   "author": "Filip Troníček",
   "license": "MIT",
+  "devDependencies": {
+    "@zeit/ncc": "0.22.3"
+  },
   "dependencies": {
     "@actions/artifact": "^0.3.5",
     "@actions/core": "^1.2.4",
