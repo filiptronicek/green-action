@@ -1,6 +1,9 @@
 require("dotenv").config();
 const axios = require("axios");
+
 const artifact = require("@actions/artifact");
+const core = require('@actions/core');
+
 const fs = require("fs");
 
 const { URL: linkToScan } = process.env;
@@ -26,6 +29,9 @@ const artifactUp = async () => {
 };
 
 const main = async () => {
+  if(!linkToScan){
+    throw new Error("The URL was not defined");  core.setFailed(`Action failed with error: The URL was not defined`);
+  }
   console.log(`👀 scanning ${linkToScan}`);
 
   const carbonData = await axios(
@@ -34,7 +40,7 @@ const main = async () => {
   console.log(carbonData.data);
 
   fs.writeFile(fileName, JSON.stringify(carbonData.data), (err) => {
-    if (err) return console.log(err);
+    if (err) return console.error(err); 
   });
   const results = await artifactUp();
   
