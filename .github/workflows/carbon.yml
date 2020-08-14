@@ -1,0 +1,16 @@
+name: Website green-o-meter
+
+on:
+  push:
+    branches: main
+
+jobs:
+  update-gist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: green-website
+        uses: filiptronicek/green-action@0.0.1
+        env:
+            URL: https://trnck.dev
