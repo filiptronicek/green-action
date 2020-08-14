@@ -8718,11 +8718,12 @@ const artifact = __webpack_require__(955);
 const fs = __webpack_require__(747);
 
 const { URL: linkToScan } = process.env;
+const fileName = "output.json";
 
 const artifactUp = async () => {
   const artifactClient = artifact.create();
   const artifactName = "output";
-  const files = ["output.json"];
+  const files = [fileName];
 
   const rootDirectory = "."; // Also possible to use __dirname
   const options = {
@@ -8746,10 +8747,12 @@ const main = async () => {
   );
   console.log(carbonData.data);
 
-  fs.writeFile("output.json", JSON.stringify(carbonData.data), (err) => {
+  fs.writeFile(fileName, JSON.stringify(carbonData.data), (err) => {
     if (err) return console.log(err);
   });
   const results = await artifactUp();
+  
+  console.log(`Using file path of ${fileName}`);
   console.log(results);
 };
 
