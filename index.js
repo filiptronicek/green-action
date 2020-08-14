@@ -9,6 +9,30 @@ const fs = require("fs");
 const { URL: linkToScan } = process.env;
 const fileName = "output.json";
 
+const getReadme = (percentage) => {
+    const fileToEdit = 'README.md';
+    fs.readFile(fileToEdit, 'utf8', function (err,data) {
+        if(err) {
+            return console.log(err);
+        }
+        let toWrite;
+        if (data.includes("<!-- CARBON-STATS -->")) {
+            console.log("Test case #1")
+          toWrite = data.replace("<!-- CARBON-STATS -->", `![carbon consumption of this project](https://green-action.vercel.app/api/card?p=${percentage})`);
+        } else if(data.includes("![carbon consumption of this project](https://green-action.vercel.app/api/card?p=")) {
+            console.log("Test case #2")
+          const r = new RegExp("\/api\/card\\?p=[0-9]{1,3}", "g");
+          toWrite = data.replace(r, `/api/card?p=${percentage}`);
+          console.log(r)
+        }
+        console.log(toWrite);
+        fs.writeFile(fileToEdit, toWrite ,(err) => {
+          if(err) return console.error(err); 
+        });
+
+    });
+}
+
 const artifactUp = async () => {
   const artifactClient = artifact.create();
   const artifactName = "carbon";
@@ -44,6 +68,7 @@ const main = async () => {
   fs.writeFile(fileName, JSON.stringify(carbonData.data), (err) => {
     if (err) return console.error(err); 
   });
+  getReadme(carbonData.data.cleanerThan * 100);
   const results = await artifactUp();
   
   console.log(`Using file path of ${fileName}`);
