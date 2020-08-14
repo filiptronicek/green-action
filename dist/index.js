@@ -8722,7 +8722,7 @@ const { URL: linkToScan } = process.env;
 const artifactUp = async () => {
   const artifactClient = artifact.create();
   const artifactName = "output";
-  const files = ["/output/output.json"];
+  const files = ["output.json"];
 
   const rootDirectory = "."; // Also possible to use __dirname
   const options = {
@@ -8746,7 +8746,7 @@ const main = async () => {
   );
   console.log(carbonData.data);
 
-  fs.writeFile("output/output.json", JSON.stringify(carbonData.data), (err) => {
+  fs.writeFile("output.json", JSON.stringify(carbonData.data), (err) => {
     if (err) return console.log(err);
   });
   const results = await artifactUp();
