@@ -8722,7 +8722,7 @@ const fileName = "output.json";
 
 const artifactUp = async () => {
   const artifactClient = artifact.create();
-  const artifactName = "output";
+  const artifactName = "carbon";
   const files = [fileName];
 
   const rootDirectory = "."; // Also possible to use __dirname
