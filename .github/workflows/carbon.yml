@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: green-website
-        uses: filiptronicek/green-action@0.0.1
+        uses: filiptronicek/green-action@main
         env:
             URL: https://trnck.dev
