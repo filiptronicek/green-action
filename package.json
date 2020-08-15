@@ -2,6 +2,7 @@
   "name": "green-action",
   "version": "0.0.1",
   "description": "Check how your project is affecting the planet",
+  "repository": "https://github.com/filiptronicek/green-action",
   "main": "index.js",
   "scripts": {
     "build": "ncc build index.js --out dist --minify"
