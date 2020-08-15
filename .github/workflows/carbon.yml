@@ -17,13 +17,3 @@ jobs:
         uses: filiptronicek/green-action@main
         env:
             URL: https://trnck.dev
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git commit -m "Change img" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
