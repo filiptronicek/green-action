@@ -10,10 +10,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
+        with:
+          persist-credentials: false 
+          fetch-depth: 0
       - name: green-website
         uses: filiptronicek/green-action@main
         env:
             URL: https://trnck.dev
-      - uses: mikeal/publish-to-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Change img" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
