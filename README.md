@@ -1,6 +1,8 @@
 # Green Action
 Check how your project is affecting the planet
 
+Read about it in my [Dev.to](https://dev.to/filiptronicek/check-how-green-your-web-project-is-52c9) post
+
 ## Setup
 1. Open your README and add paste the following tag in there (this will be, where the image will be placed):  
 `<!-- CARBON-STATS -->`
