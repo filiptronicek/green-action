@@ -53,7 +53,8 @@ const artifactUp = async () => {
 
 const main = async () => {
   if(!linkToScan){
-    throw new Error("The URL was not defined");  core.setFailed(`Action failed with error: The URL was not defined`);
+    core.setFailed(`Action failed with error: The URL was not defined`);
+    throw new Error("The URL was not defined");  
   }
   console.log(`👀 scanning ${linkToScan}`);
 
