@@ -21,8 +21,8 @@ const getReadme = (percentage) => {
           const r = new RegExp("\/api\/card\\?p=[0-9]{1,3}", "g");
           toWrite = data.replace(r, `/api/card?p=${percentage}`);
         }
-        fs.writeFile(fileToEdit, toWrite ,(err) => {
-          if(err) return console.error(err); 
+        fs.writeFile(fileToEdit, toWrite ,(errW) => {
+          if(errW) return console.error(errW); 
         });
 
     });
