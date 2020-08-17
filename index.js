@@ -42,7 +42,7 @@ const artifactUp = async () => {
     artifactName,
     files,
     rootDirectory,
-    options
+    options,
   );
   return results;
 };
