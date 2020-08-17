@@ -11,7 +11,7 @@ const fileName = "output.json";
 
 const getReadme = (percentage) => {
     const fileToEdit = 'README.md';
-    fs.readFile(fileToEdit, 'utf8', function (err,data) {
+    fs.readFile(fileToEdit, 'utf8', (err,data) => {
         if(err)
             return console.log(err);
         let toWrite;
@@ -26,7 +26,7 @@ const getReadme = (percentage) => {
         });
 
     });
-}
+};
 
 const artifactUp = async () => {
   const artifactClient = artifact.create();
