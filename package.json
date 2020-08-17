@@ -1,6 +1,6 @@
 {
   "name": "green-action",
-  "version": "1.0.3",
+  "version": "1.0.2",
   "description": "Check how your project is affecting the planet",
   "repository": "https://github.com/filiptronicek/green-action",
   "main": "index.js",
