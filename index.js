@@ -17,7 +17,7 @@ const getReadme = (percentage) => {
         let toWrite;
         if (data.includes("<!-- CARBON-STATS -->")) {
           toWrite = data.replace("<!-- CARBON-STATS -->", `![carbon consumption of this project](https://green-action.vercel.app/api/card?p=${percentage})`);
-        } else if(data.includes("![carbon consumption of this project](https://green-action.vercel.app/api/card?p=")) {
+        } else if (data.includes("![carbon consumption of this project](https://green-action.vercel.app/api/card?p=")) {
           const r = new RegExp("\/api\/card\\?p=[0-9]{1,3}", "g");
           toWrite = data.replace(r, `/api/card?p=${percentage}`);
         }
