@@ -7,7 +7,6 @@ on:
 jobs:
   update-gist:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@master
         with:
@@ -15,5 +14,17 @@ jobs:
           fetch-depth: 0
       - name: green-website
         uses: filiptronicek/green-action@main
+        with:
+          toShow: gw # Either Cleaner than (ct) or grams of carbon per visit (gw)
         env:
             URL: https://trnck.dev
+      - name: Commit files
+        run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git commit -m "Update carbon image" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: main #Change this to master, or any other branch to which the changes should be pushed

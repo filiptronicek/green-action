@@ -1,5 +1,10 @@
 name: "green-website"
 description: "Check how your project is affecting the planet"
+inputs:
+  toShow:  # id of input
+    description: 'What stat to show'
+    required: true
+    default: 'ct'
 branding:
   icon: "heart"
   color: "green"

@@ -6,7 +6,7 @@ const carbonPercentCard = (percent) => `
             <tspan x="50%" y="61%" text-anchor="middle" font-size="35" fill="green">${percent}%</tspan>
             <tspan x="3em" y="4.7em">cleaner than average</tspan>
         </text>    
-    </svg>`
+    </svg>`;
 const carbonGramCard = (grams) => {
     const unit = "g";
     const value = grams;
@@ -30,4 +30,4 @@ module.exports = (req, res) => {
     } else {
         res.send(carbonPercentCard(req.query.p));
     }
-}
+};
