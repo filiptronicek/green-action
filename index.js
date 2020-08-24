@@ -21,9 +21,9 @@ const getReadme = (percentage) => {
     if (data.includes("<!-- CARBON-STATS -->")) {
       toWrite = data.replace(
         "<!-- CARBON-STATS -->",
-        `![carbon consumption of this project](https://green-action.vercel.app/api/card?p=${percentage})type=${
+        `![carbon consumption of this project](https://green-action.vercel.app/api/card?p=${percentage}type=${
           isWeight ? "grams" : "percent"
-        }`
+        })`
       );
     } else if (
       data.includes(
