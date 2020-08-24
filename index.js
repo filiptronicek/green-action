@@ -14,7 +14,7 @@ const type = core.getInput("who-to-greet");
 const getReadme = (percentage) => {
   const fileToEdit = "README.md";
   fs.readFile(fileToEdit, "utf8", (err, data) => {
-    const isWeight = type === "ct";
+    const isWeight = (type === "gw");
 
     if (err) return console.log(err);
     let toWrite;
