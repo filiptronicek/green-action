@@ -6,7 +6,7 @@ const core = require("@actions/core");
 
 const fs = require("fs");
 
-const { URL: linkToScan } = process.env;
+const {URL : linkToScan} = process.env;
 const fileName = "output.json";
 
 const type = core.getInput('who-to-greet');
@@ -16,23 +16,25 @@ const getReadme = (percentage) => {
   fs.readFile(fileToEdit, "utf8", (err, data) => {
     const isWeight = type === "ct";
 
-    if (err) return console.log(err);
+    if (err)
+      return console.log(err);
     let toWrite;
     if (data.includes("<!-- CARBON-STATS -->")) {
       toWrite = data.replace(
-        "<!-- CARBON-STATS -->",
-        `![carbon consumption of this project](https://green-action.vercel.app/api/card?p=${percentage})type=${isWeight ? "grams" : "percent"}`,
+          "<!-- CARBON-STATS -->",
+          `![carbon consumption of this project](https://green-action.vercel.app/api/card?p=${
+              percentage})type=${isWeight ? "grams" : "percent"}`,
       );
     } else if (
-      data.includes(
-        "![carbon consumption of this project](https://green-action.vercel.app/api/card?p=",
-      )
-    ) {
+        data.includes(
+            "![carbon consumption of this project](https://green-action.vercel.app/api/card?p=",
+            )) {
       const r = new RegExp("/api/card\\?p=[0-9]{1,3}", "g");
       toWrite = data.replace(r, `/api/card?p=${percentage}`);
     }
     fs.writeFile(fileToEdit, toWrite, (errW) => {
-      if (errW) return console.error(errW);
+      if (errW)
+        return console.error(errW);
     });
   });
 };
@@ -40,18 +42,18 @@ const getReadme = (percentage) => {
 const artifactUp = async () => {
   const artifactClient = artifact.create();
   const artifactName = "carbon";
-  const files = [fileName];
+  const files = [ fileName ];
 
   const rootDirectory = "."; // Also possible to use __dirname
   const options = {
-    continueOnError: false,
+    continueOnError : false,
   };
 
   const results = await artifactClient.uploadArtifact(
-    artifactName,
-    files,
-    rootDirectory,
-    options,
+      artifactName,
+      files,
+      rootDirectory,
+      options,
   );
   return results;
 };
@@ -64,12 +66,13 @@ const main = async () => {
   console.log(`👀 scanning ${linkToScan}`);
 
   const carbonData = await axios(
-    `https://api.websitecarbon.com/site?url=${linkToScan}`,
+      `https://api.websitecarbon.com/site?url=${linkToScan}`,
   );
   console.log(carbonData.data);
 
   fs.writeFile(fileName, JSON.stringify(carbonData.data), (err) => {
-    if (err) return console.error(err);
+    if (err)
+      return console.error(err);
   });
   getReadme(carbonData.data.cleanerThan * 100);
   const results = await artifactUp();
@@ -78,6 +81,4 @@ const main = async () => {
   console.log(results);
 };
 
-(async () => {
-  await main();
-})();
+(async () => { await main(); })();
