@@ -8,7 +8,7 @@ post
 
 Demo:
 
-![carbon consumption of this project](https://green-action.vercel.app/api/card?p=78)type=percent
+<!-- CARBON-STATS -->
 
 ## Setup
 
@@ -52,5 +52,3 @@ jobs:
 
 1. clone the repo (`git clone https://github.com/filiptronicek/green-action`)
 1. change the URL in the env file (first create it): `cp .env.example .env`
-
-![carbon consumption of this project](https://green-action.vercel.app/api/card?p=78)
