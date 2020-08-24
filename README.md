@@ -8,7 +8,7 @@ post
 
 Demo:
 
-![carbon consumption of this project](https://green-action.vercel.app/api/card?p=78type=percent)
+<!-- CARBON-STATS -->
 
 ## Setup
 
