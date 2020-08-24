@@ -15,7 +15,7 @@ const getReadme = (percentage) => {
   const fileToEdit = "README.md";
   fs.readFile(fileToEdit, "utf8", (err, data) => {
     const isWeight = (type === "gw");
-
+    console.log(`Type is ${type} so isWeight is ${isWeight}`);
     if (err) return console.log(err);
     let toWrite;
     if (data.includes("<!-- CARBON-STATS -->")) {
