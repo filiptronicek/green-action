@@ -9,19 +9,25 @@ const fs = require("fs");
 const { URL: linkToScan } = process.env;
 const fileName = "output.json";
 
+const type = core.getInput("who-to-greet");
+
 const getReadme = (percentage) => {
   const fileToEdit = "README.md";
   fs.readFile(fileToEdit, "utf8", (err, data) => {
+    const isWeight = type === "ct";
+
     if (err) return console.log(err);
     let toWrite;
     if (data.includes("<!-- CARBON-STATS -->")) {
       toWrite = data.replace(
         "<!-- CARBON-STATS -->",
-        `![carbon consumption of this project](https://green-action.vercel.app/api/card?p=${percentage})`,
+        `![carbon consumption of this project](https://green-action.vercel.app/api/card?p=${percentage})type=${
+          isWeight ? "grams" : "percent"
+        }`
       );
     } else if (
       data.includes(
-        "![carbon consumption of this project](https://green-action.vercel.app/api/card?p=",
+        "![carbon consumption of this project](https://green-action.vercel.app/api/card?p="
       )
     ) {
       const r = new RegExp("/api/card\\?p=[0-9]{1,3}", "g");
@@ -47,7 +53,7 @@ const artifactUp = async () => {
     artifactName,
     files,
     rootDirectory,
-    options,
+    options
   );
   return results;
 };
@@ -60,7 +66,7 @@ const main = async () => {
   console.log(`👀 scanning ${linkToScan}`);
 
   const carbonData = await axios(
-    `https://api.websitecarbon.com/site?url=${linkToScan}`,
+    `https://api.websitecarbon.com/site?url=${linkToScan}`
   );
   console.log(carbonData.data);
 
