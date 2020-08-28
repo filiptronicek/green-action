@@ -8,7 +8,7 @@ post
 
 Demo:
 
-![carbon consumption of this project](https://green-action.vercel.app/api/card?p=78)type=percent
+![carbon consumption of this project](https://green-action.vercel.app/api/card?p=78&type=percent)
 
 ## Setup
 
