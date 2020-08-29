@@ -30,7 +30,7 @@ const getReadme = (percentage) => {
         "![carbon consumption of this project](https://green-action.vercel.app/api/card?p="
       )
     ) {
-      const r = new RegExp("/api/card\\?p=[0-9]{1,3}", "g");
+      const r = new RegExp("/api/card\?p=[0-9]{1,3}", "g");
       toWrite = data.replace(r, `/api/card?p=${percentage}`);
     }
     fs.writeFile(fileToEdit, toWrite, (errW) => {
