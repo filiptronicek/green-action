@@ -9,7 +9,7 @@ const fs = require("fs");
 const { URL: linkToScan } = process.env;
 const fileName = "output.json";
 
-const type = core.getInput("who-to-greet");
+const type = core.getInput("toShow");
 
 const getReadme = (percentage) => {
   const fileToEdit = "README.md";
