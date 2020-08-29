@@ -15,7 +15,7 @@ jobs:
       - name: green-website
         uses: filiptronicek/green-action@main
         with:
-          toShow: gw # Either Cleaner than (ct) or grams of carbon per visit (gw)
+          toShow: ct # Either Cleaner than (ct) or grams of carbon per visit (gw)
         env:
             URL: https://trnck.dev
       - name: Commit files
