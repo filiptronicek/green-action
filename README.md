@@ -10,7 +10,6 @@ Demo:
 <!-- CARBON-STATS -->
 
 ## Setup
-
 1. Open your README and add paste the following tag in there (this will be,
    where the image will be placed): `<!-- CARBON-STATS -->`
 1. Add the following workflow to your .github/workflows folder:
