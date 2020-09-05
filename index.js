@@ -74,8 +74,8 @@ const main = async () => {
     if (err) return console.error(err);
   });
   const dataToSend = isWeight ? carbon.data.statistics.co2.grid.grams : carbonData.data.cleanerThan * 100;
-  getReadme(dataToSend);
 
+  getReadme(carbonData.data.cleanerThan * 100);
   const results = await artifactUp();
 
   console.log(`Using file path of ${fileName}`);
