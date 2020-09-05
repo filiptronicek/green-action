@@ -7,13 +7,12 @@ Read about it in my
 post
 
 Demo:
-
-![carbon consumption of this project](https://green-action.vercel.app/api/card?p=78&type=grams)
+<!-- CARBON-STATS -->
 
 ## Setup
 
 1. Open your README and add paste the following tag in there (this will be,
-   where the image will be placed): `![carbon consumption of this project](https://green-action.vercel.app/api/card?p=78&type=grams)`
+   where the image will be placed): `<!-- CARBON-STATS -->`
 1. Add the following workflow to your .github/workflows folder:
 
 ```yaml
