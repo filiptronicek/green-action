@@ -10,11 +10,11 @@ const { URL: linkToScan } = process.env;
 const fileName = "output.json";
 
 const type = core.getInput("toShow");
+const isWeight = (type === "gw");
 
 const getReadme = (percentage) => {
   const fileToEdit = "README.md";
   fs.readFile(fileToEdit, "utf8", (err, data) => {
-    const isWeight = (type === "gw");
     console.log(`Type is ${type} so isWeight is ${isWeight}`);
     if (err) return console.log(err);
     let toWrite;
@@ -73,7 +73,9 @@ const main = async () => {
   fs.writeFile(fileName, JSON.stringify(carbonData.data), (err) => {
     if (err) return console.error(err);
   });
-  getReadme(carbonData.data.cleanerThan * 100);
+  const dataToSend = isWeight ? carbon.data.statistics.co2.grid.grams : carbonData.data.cleanerThan * 100;
+  getReadme(dataToSend);
+
   const results = await artifactUp();
 
   console.log(`Using file path of ${fileName}`);
