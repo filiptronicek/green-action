@@ -1,6 +1,6 @@
 # Green Action
 
-Check how your project is affecting the planet
+Check how your project is affecting the planet and check the carbon stats
 
 Read about it in my
 [Dev.to](https://dev.to/filiptronicek/check-how-green-your-web-project-is-52c9)
