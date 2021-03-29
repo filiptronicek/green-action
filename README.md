@@ -6,7 +6,7 @@ Read about it in my
 [Dev.to](https://dev.to/filiptronicek/check-how-green-your-web-project-is-52c9)
 post
 
-Demo:
+## Demo
 
 <!-- CARBON-STATS -->
 
